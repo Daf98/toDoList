@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   devServer: {
-    port:'35145',
+    port: '35145',
     static: './dist',
   },
   plugins: [
