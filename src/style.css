@@ -7,14 +7,23 @@
   box-sizing: border-box;
 }
 
-input,
-button {
-  border: none;
-  background-color: transparent;
-}
-
 .list {
   padding: 1rem;
+  align-items: center;
+}
+.fa-arrows-rotate, .fa-ellipsis-vertical, .fa-trash-can {
+  cursor: pointer;
+}
+.fa-trash-can {
+  display: none;
+}
+
+.active-trash {
+display: block;
+}
+
+.inactive-ellipsis {
+  display:none;
 }
 
 .main-header {
@@ -52,4 +61,26 @@ button {
   justify-content: center;
   padding: 0.5rem;
   color: gray;
+  cursor: pointer;
+}
+
+.three-dots {
+  display:flex;
+  align-self:flex-end;
+  cursor: pointer;
+}
+
+.trash-can {
+  display: none;
+  align-self: flex-end;
+}
+
+.strike {
+  text-decoration: line-through;
+  color: gray;
+  background-color: #fffed3;
+}
+
+.refresh {
+  cursor: pointer;
 }

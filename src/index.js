@@ -1,53 +1,65 @@
+//Imports
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js'
 import './style.css';
 
-// create array of objects
-const toDoList = [{
-  description: 'one',
-  completed: false,
-  index: 0,
-},
-{
-  description: 'two',
-  completed: false,
-  index: 1,
-}, {
-  description: 'three',
-  completed: false,
-  index: 2,
-}, {
-  description: 'four',
-  completed: false,
-  index: 3,
-},
-];
-// declare HTML elements
-const body = document.querySelector('body');
-// main ul 'listOfItems' class=list
-const listOfItems = document.createElement('ul');
-listOfItems.classList.add('list');
-body.appendChild(listOfItems);
-// header and input
-listOfItems.innerHTML = `
-<li class="main-header">Today's To Do<button type="submit">X</button></li>
+//Declare HTML elements
+//section
+const mainSection = document.getElementById('main-section');
+//textInput
+const mainInput = document.getElementById('main-input');
+//todosMainContainer
+const listOfItems = document.querySelector('.list');
+//clearAllbtn
+const ClearAll = document.querySelector('.clear-all');
 
-<li class="main-input"><input type="text" placeholder="Add to your list...">
-<button>O</button></li>
-`;
+//Make class for list Items
+class ListItem {
+  constructor(description, completed, index) {
+    this.description = description;
+    this.completed = completed;
+    this.index = index;
+  }
 
-// create dynamic HTML
-for (let i = 0; i < toDoList.length; i += 1) {
-  // smaller ul 'listItem' class=item
-  const listItem = document.createElement('ul');
-  listItem.classList.add('item');
-  listOfItems.appendChild(listItem);
-  listItem.innerHTML = `
-  <div class="checkbox-desc">  <li><input type="checkbox"></li>
-    <li class="description">${toDoList[i].description}</li></div>
-    <li><button>...</button></li>
-  `;
 }
-// clear all-completed button
-const clearAll = document.createElement('li');
-clearAll.classList.add('clear-all');
-clearAll.textContent = 'Clear all completed';
-listOfItems.appendChild(clearAll);
+//Create array to store items
+const itemArray = [];
+//Add new item
+const addNewItem = (newDescription) => {
+const newItem = document.createElement('div');
+newItem.classList.add('newItem');
+newItem.innerHTML += `
+<input type="checkbox" class="checkbox">
+<span>${newDescription}</span>
+<i class="fa-solid fa-ellipsis-vertical"></i>
+<i class="fa-solid fa-trash-can"></i>
+`
+listOfItems.appendChild(newItem);
+// make checkbox work
+const checkbox = document.querySelectorAll('.checkbox');
+checkbox.forEach(checkboxInput => {
+checkboxInput.addEventListener('click', () => {
+  checkboxInput.parentNode.classList.toggle('strike');
+  const ellipsisIcon = checkboxInput.parentNode.childNodes[5];
+  ellipsisIcon.classList.toggle('inactive-ellipsis');
+  const trashIcon = checkboxInput.parentNode.childNodes[8];
+  trashIcon.classList.toggle('active-trash');
+});
+//Create and send new item to local storage
+const newListItem = new ListItem(newDescription, false, '0');
+itemArray.push(newListItem);
+console.log(itemArray);
+const stringedItems = JSON.stringify(itemArray);
+localStorage.setItem('items', stringedItems);
+});
+
+}
+
+//Add event listener to input field
+mainInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && mainInput.value) {
+    e.preventDefault();
+    addNewItem(mainInput.value);
+    mainInput.value = '';
+  }
+});
