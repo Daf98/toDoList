@@ -12,6 +12,10 @@ body {
   justify-content: center;
 }
 
+.fa-trash-can {
+  display: none;
+}
+
 #main-section {
   box-shadow: 1px 5px 18px -1px rgb(34 60 80 / 19%);
   width: 40%;
@@ -62,9 +66,7 @@ button {
 .fa-arrows-rotate, .fa-ellipsis-vertical, .fa-trash-can {
   cursor: pointer;
 }
-.fa-trash-can {
-  display: none;
-}
+
 
 .active-trash {
 display: block;
