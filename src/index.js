@@ -57,7 +57,7 @@ const removeItems = (li) => {
   let count = 0;
   const parsedItems = localStorage.getItem('items');
   let localData = JSON.parse(parsedItems);
-  // Filter true elements
+  // Filter elements that are true
   localData = localData.filter((item) => item.completed === false);
   // Update index of elements
   localData.map((item) => {
