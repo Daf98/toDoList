@@ -12,6 +12,16 @@ body {
   justify-content: center;
 }
 
+.trashcan {
+  margin-left: auto;
+}
+
+.ellipsis,
+.trashcan {
+  position: absolute;
+  right: 32%;
+}
+
 .fa-trash-can {
   display: none;
 }
@@ -26,7 +36,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 5% 2%;
-  
 }
 
 .new-item {
@@ -46,10 +55,6 @@ body {
   font-size: 15px;
 }
 
-span {
-  flex: 1;
-}
-
 button {
   border: none;
   background-color: transparent;
@@ -59,27 +64,27 @@ button {
   background-color: #fffed3;
 }
 
-.checkbox{
+.checkbox {
   width: 15%;
-} 
+}
 
-.fa-arrows-rotate, .fa-ellipsis-vertical, .fa-trash-can {
+.fa-arrows-rotate,
+.fa-ellipsis-vertical,
+.fa-trash-can {
   cursor: pointer;
 }
 
-
 .active-trash {
-display: block;
+  display: block;
 }
 
 .inactive-ellipsis {
-  display:none;
+  display: none;
 }
 
 .main-header {
   display: flex;
   justify-content: space-between;
-  
 }
 
 #main-input {
@@ -93,23 +98,12 @@ display: block;
   padding-bottom: 5%;
 }
 
-.checkbox-desc {
-  display: flex;
-  gap: 0.5rem;
-}
-
 .item {
   display: flex;
   border: 1px solid gray;
   border-top: 0;
   justify-content: space-between;
   padding: 0.5rem;
-}
-
-.three-dots {
-  display:flex;
-  align-self:flex-end;
-  cursor: pointer;
 }
 
 .trash-can {
