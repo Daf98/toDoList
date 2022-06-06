@@ -59,8 +59,8 @@ const removeItems = (li) => {
   let localData = JSON.parse(parsedItems);
   // // Filter elements that are true
   // localData = localData.filter((item) => item.completed === false);
-    itemArray = JSON.parse(localStorage.getItem('items')); //not working
-  itemArray.splice((li.id)-1, 1);
+  itemArray = JSON.parse(localStorage.getItem('items')); // not working
+  itemArray.splice((li.id) - 1, 1);
   localData = itemArray;
   // Update index of elements
   localData.map((item) => {
