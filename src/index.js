@@ -10,7 +10,7 @@ const listOfItems = document.querySelector('.list');
 const clearAll = document.querySelector('.clear-all');
 
 // Create array to store items
-const itemArray = [] || localStorage.getItem('items');
+let itemArray = [] || JSON.parse(localStorage.getItem('items'));
 const completeItem = () => {
   const localData = localStorage.getItem('items');
   const parsedData = JSON.parse(localData);
@@ -54,11 +54,14 @@ const editItems = (oldItem) => {
 // Remove items
 const removeItems = (li) => {
   listOfItems.removeChild(li);
-  let count = 0;
+  let count = 1;
   const parsedItems = localStorage.getItem('items');
   let localData = JSON.parse(parsedItems);
-  // Filter elements that are true
-  localData = localData.filter((item) => item.completed === false);
+  // // Filter elements that are true
+  // localData = localData.filter((item) => item.completed === false);
+    itemArray = JSON.parse(localStorage.getItem('items')); //not working
+  itemArray.splice((li.id)-1, 1);
+  localData = itemArray;
   // Update index of elements
   localData.map((item) => {
     item.index = count;
@@ -96,7 +99,7 @@ const addNewItem = (newDescription) => {
     });
   });
   // Create and send new item to local storage
-  const newListItem = new ListItem(newDescription, false, checkbox.length - 1);
+  const newListItem = new ListItem(newDescription, false, checkbox.length);
   itemArray.push(newListItem);
   const stringedItems = JSON.stringify(itemArray);
   localStorage.setItem('items', stringedItems);
@@ -171,7 +174,7 @@ const getItemsLocal = () => {
   const removeItem = document.querySelectorAll('.trashcan');
   removeItem.forEach((item) => {
     item.addEventListener('click', () => {
-      removeItems(item.parentNode);
+      removeItems(item.children[0].parentNode.parentNode);
     });
   });
   clearAll.addEventListener('click', () => {
