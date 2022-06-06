@@ -25,8 +25,7 @@
 ```
 - Then open index.html in a live server.
 
-## Online version
-[Live Demo](https://daf98.github.io/toDoList/dist)
+(https://daf98.github.io/toDoList/dist)](https://daf98.github.io/toDoList/dist/)
 
 ## Authors
 
