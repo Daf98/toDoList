@@ -1,13 +1,13 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# To-DO List 
+# To-Do List 
 
-> In this project I'm creating an interactive to-do list
+> In this project I'm creating an interactive to-do list where I can add, remove, edit and complete items, as well as save them to my local storage.
 
 ## Built With
 
 - HTML, CSS, JS
-- Git, Github
+- Git, Github, Webpack
 
 ## Getting Started
 ### To launch the project locally:
