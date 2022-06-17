@@ -1,6 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # To-Do List 
+![](https://user-images.githubusercontent.com/82343891/174390879-9b35f870-1672-4198-a5c6-a7104aeaeb19.png)
 
 > In this project I'm creating an interactive to-do list where I can add, remove, edit and complete items, as well as save them to my local storage.
 
